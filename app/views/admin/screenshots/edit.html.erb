@@ -1,0 +1,22 @@
+<h1>Editing screenshot</h1>
+
+<%= error_messages_for :screenshot %>
+
+<% form_for(@screenshot) do |f| %>
+  <p>
+    <b>Site</b><br />
+    <%= f.text_field :site_id %>
+  </p>
+
+  <p>
+    <b>Location</b><br />
+    <%= f.text_field :location %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @screenshot %> |
+<%= link_to 'Back', screenshots_path %>

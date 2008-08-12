@@ -1,0 +1,62 @@
+<h1>Editing sub_rating</h1>
+
+<%= error_messages_for :sub_rating %>
+
+<% form_for(@sub_rating) do |f| %>
+  <p>
+    <b>Exclusivity</b><br />
+    <%= f.text_field :exclusivity %>
+  </p>
+
+  <p>
+    <b>Updates</b><br />
+    <%= f.text_field :updates %>
+  </p>
+
+  <p>
+    <b>Originality</b><br />
+    <%= f.text_field :originality %>
+  </p>
+
+  <p>
+    <b>Quality</b><br />
+    <%= f.text_field :quality %>
+  </p>
+
+  <p>
+    <b>Speed</b><br />
+    <%= f.text_field :speed %>
+  </p>
+
+  <p>
+    <b>Quantity</b><br />
+    <%= f.text_field :quantity %>
+  </p>
+
+  <p>
+    <b>Design</b><br />
+    <%= f.text_field :design %>
+  </p>
+
+  <p>
+    <b>Navigation ease</b><br />
+    <%= f.text_field :navigation_ease %>
+  </p>
+
+  <p>
+    <b>Features</b><br />
+    <%= f.text_field :features %>
+  </p>
+
+  <p>
+    <b>Price</b><br />
+    <%= f.text_field :price %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sub_rating %> |
+<%= link_to 'Back', sub_ratings_path %>

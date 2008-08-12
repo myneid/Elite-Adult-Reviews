@@ -1,0 +1,13 @@
+<p>
+  <b>Site:</b>
+  <%=h @screenshot.site_id %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%=h @screenshot.location %>
+</p>
+
+
+<%= link_to 'Edit', edit_screenshot_path(@screenshot) %> |
+<%= link_to 'Back', screenshots_path %>

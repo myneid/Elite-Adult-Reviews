@@ -1,0 +1,131 @@
+<div id="innercontent">
+
+<h2>Site Details</h2>
+<p><b>Name:</b>
+<%=h @site.name %>
+</p>
+<p>
+  <b>Display url:</b>
+  <%=h @site.display_url %>
+</p>
+
+<p>
+  <b>Track url:</b>
+  <%=h @site.track_url %>
+</p>
+<p>
+  <b>Trial Price:</b>
+  <%=h @site.trial_price %>
+</p>
+<p>
+  <b>Full Price:</b>
+  <%=h @site.full_price %>
+</p>
+<Br/>
+<p>
+  <b>Overall Score:</b>
+  <%=h @site.overall %>%
+</p>
+<Br/>
+<p>
+  <b>Short review:</b>
+<small>
+  <%= @site.short_review.gsub(/\n/, '<br />') %>
+</small>
+</p>
+<br>
+<p>
+  <b>Content:</b>
+<small>
+  <%= @site.content.gsub(/\n/, '<br />')  %>
+</small>
+</p>
+<br>
+<p>
+  <b>Features and navigation:</b>
+<small>
+  <%= @site.features_and_navigation.gsub(/\n/, '<br />')  %>
+</small>
+</p>
+<br>
+<p>
+  <b>Conclusion:</b>
+<small>
+  <%= @site.conclusion.gsub(/\n/, '<br />')  %>
+</small>
+</p>
+<br>
+<p>
+  <b>Pros and cons:</b>
+<small>
+  <%= @site.pros_and_cons.gsub(/\n/, '<br />')  %>
+</small>
+</p>
+
+
+<p>
+  <b>Main Screenshot:</b>
+  <img src="<%= @site.main_screenshot(:thumbreg) %>" alt="" />
+</p>
+<p>
+  <b>Member Screenshot 1:</b>
+  <img src="<%= @site.memberone_screenshot(:thumbmed) %>" alt="" />
+</p>
+<p>
+  <b>Member Screenshot 2:</b>
+  <img src="<%= @site.membertwo_screenshot(:thumbmed) %>" alt="" />
+</p>
+<p>
+  <b>Member Screenshot 3:</b>
+  <img src="<%= @site.memberthree_screenshot(:thumbmed) %>" alt="" />
+</p>
+<p>
+  <b>Member Screenshot 4:</b>
+  <img src="<%= @site.memberfour_screenshot(:thumbmed) %>" alt="" />
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @site.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @site.updated_at %>
+</p>
+<Br/><Br/>
+<h2>Feature Ratings</h2>
+<table cellspacing="3" cellpadding="3" border="0">
+	<tr>
+		<th>Feature</th><th>Rating</th>
+	</tr>
+
+
+	<% SubRating.columns.each do |cn| %>
+	<% if cn.name == 'created_at' \
+		or cn.name == 'updated_at' \
+		or cn.name == 'site_id' \
+		or cn.name == 'id' then next end %>
+	<tr>
+		<td><%= cn.human_name %></td><td><%= @site.sub_rating.send(cn.name) %></td>
+	</tr>
+	<% end %>
+
+</table>
+<br><br>
+<h2>Category Ratings</h2>
+<Table cellpadding="3" cellspacing="3" border="0">
+<tr><Th>Category</th><th>Rating</th></tr>
+<% @site.ratings.each do |rating| %>
+<tr><Td><%= rating.category.name %></td>
+<td><%= rating.rating %></td>
+<!-- <td><a href="/admin/ratings/edit/<%= rating.id %>">Edit</a> -->
+</tr>
+<% end %>
+</table>
+
+<br><Br>
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>
+</div>

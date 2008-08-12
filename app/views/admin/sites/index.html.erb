@@ -1,0 +1,28 @@
+<div id="innercontent">
+<h2>Recently Added Sites</h2>
+<table align="left" cellpadding="4" cellspacing="4">
+  <tr>
+	<th>Name</th>
+    <th>Url</th>
+    <th>Created at</th>
+	<th>View</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% for site in @sites %>
+  <tr>
+	<td><%=h site.name %></td>
+    <td><%=h site.display_url %></td>
+    <td><%=h site.created_at %></td>
+    <td><%= link_to 'Show', site %></td>
+    <td><%= link_to 'Edit', edit_site_path(site) %></td>
+    <td><%= link_to 'Destroy', site, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<br style="clear: both;" />
+<a href="/admin/sites/new">Create New Site</a>
+</div>

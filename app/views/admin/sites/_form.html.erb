@@ -1,0 +1,187 @@
+<style type="text/css">
+  div.slider { width:256px; margin:10px 0; background-color:#ccc; height:10px; position: relative; clear: none; }
+  div.slider div.handle { width:10px; height:15px; background-color:#f00; cursor:move; position: absolute; }
+  div#zoom_element { width:50px; height:50px; background:#2d86bd; position:relative; }
+</style>
+
+<% form_for(@site, :html => {:multipart => true}) do |f| %>
+	<p>
+	<b>Name</b><br/>
+	<%= f.text_field :name %>
+	</p>
+
+  <p>
+    <b>Display url</b><br />
+    <%= f.text_field :display_url %>
+  </p>
+
+  <p>
+    <b>Track url</b><br />
+    <%= f.text_field :track_url %>
+  </p>
+  <p>
+  <b>Trial Price</b><br />
+  <%= f.text_field :trial_price %>
+  </p>
+  <p>
+  <b>Full Price</b><br />
+  <%= f.text_field :full_price %>
+  </p>
+
+  <p>
+    <b>Short review</b><br />
+    <%= f.text_area :short_review %>
+  </p>
+
+  <p>
+    <b>Content</b><br />
+    <%= f.text_area :content %>
+  </p>
+
+  <p>
+    <b>Features and navigation</b><br />
+    <%= f.text_area :features_and_navigation %>
+  </p>
+
+  <p>
+    <b>Conclusion</b><br />
+    <%= f.text_area :conclusion %>
+  </p>
+
+  <p>
+    <b>Pros and cons</b><br />
+    <%= f.text_area :pros_and_cons %>
+  </p>
+
+  <% if @site.id %>
+  <p>
+  <b>Current Main Screenshot:<br/><img src="<%= @site.main_screenshot(:thumbreg) %>" alt="" /></b></p>
+<% end %>
+<p><b><% if @site.id %>Replace<% else %>Upload<% end %> Main Screenshot (will be resized as needed)</b></p> 
+  <input type="file" name="images[main][uploaded_data]">
+  </p>
+
+  <% if @site.id %>
+  <p>
+  <b>Current Members Screenshot 1:<br/><img src="<%= @site.memberone_screenshot(:thumbreg) %>" alt="" /></b></p>
+<% end %>
+<p><b><% if @site.id %>Replace<% else %>Upload<% end %> Members Screenshot 1 (will be resized as needed)</b></p> 
+  <input type="file" name="images[memberone][uploaded_data]">
+  </p>
+
+  <% if @site.id %>
+  <p>
+  <b>Current Members Screenshot 2:<br/><img src="<%= @site.membertwo_screenshot(:thumbreg) %>" alt="" /></b></p>
+<% end %>
+<p><b><% if @site.id %>Replace<% else %>Upload<% end %> Members Screenshot 2 (will be resized as needed)</b></p> 
+  <input type="file" name="images[membertwo][uploaded_data]">
+  </p>
+
+  <% if @site.id %>
+  <p>
+  <b>Current Members Screenshot 3:<br/><img src="<%= @site.memberthree_screenshot(:thumbreg) %>" alt="" /></b></p>
+<% end %>
+<p><b><% if @site.id %>Replace<% else %>Upload<% end %> Members Screenshot 3 (will be resized as needed)</b></p> 
+  <input type="file" name="images[memberthree][uploaded_data]">
+  </p>
+
+  <% if @site.id %>
+  <p>
+  <b>Current Members Screenshot 4:<br/><img src="<%= @site.memberfour_screenshot(:thumbreg) %>" alt="" /></b></p>
+<% end %>
+<p><b><% if @site.id %>Replace<% else %>Upload<% end %> Members Screenshot 4 (will be resized as needed)</b></p> 
+  <input type="file" name="images[memberfour][uploaded_data]">
+  </p>
+<br/>
+
+
+
+<h2>Feature Ratings</h2>
+<br/>
+<% SubRating.columns.each do |cn| %>
+
+<% if cn.name == 'id' \
+	or cn.name == 'site_id' \
+	or cn.name == 'created_at' \
+	or cn.name == 'updated_at' then next end %>
+
+<p><b><%= cn.human_name %>: <span id="sub_rating_<%= cn.name %>_display"><% if @site.sub_rating.send(cn.name) %><%= @site.sub_rating.send(cn.name) %><% else %>0<% end %></span></b><br/>
+<input type="hidden" name="sub_rating[<%= cn.name %>]" id="sub_rating_<%= cn.name %>" value="<% if @site.sub_rating.send(cn.name) %><%= @site.sub_rating.send(cn.name) %><% else %>0<% end %>" >
+<table ><tr>
+  <td>Poor</td><Td><div id="zoom_slider_<%= cn.name %>" class="slider">
+    <div class="handle"></div>
+  </div></td><td>Perfect</td></tr></table>
+
+</p>
+
+<script type="text/javascript">
+  (function() {
+    var zoom_slider_<%= cn.name %> = $('zoom_slider_<%= cn.name %>');
+    new Control.Slider(zoom_slider_<%= cn.name %>.down('.handle'), zoom_slider_<%= cn.name %>, {
+      range: $R(0, 100),
+	increment: 5,
+      sliderValue: <% if @site.sub_rating.send(cn.name) %><%= @site.sub_rating.send(cn.name) %><% else %>0<% end %>,
+	onSlide: function(value) {
+		$('sub_rating_<%= cn.name %>_display').innerHTML = parseInt(value);
+	},
+      onChange: function(value) { 
+		$('sub_rating_<%= cn.name %>').value = parseInt(value);
+		
+      }
+    });
+  })();
+</script>
+<br/>
+<% end %>
+
+
+<h2>Category Ratings</h2>
+<br/>
+<% Category.find(:all).each do |rn| %>
+
+<% if rn.name == 'id' \
+	or rn.name == 'site_id' \
+	or rn.name == 'created_at' \
+	or rn.name == 'updated_at' then next end %>
+
+<p><b><%= rn.name %>: <span id="rating_<%= rn.name %>_display"><% if @site.ratings.fetch((rn.id-1), 0) != 0 %><%= @site.ratings.fetch(rn.id-1).rating %><% else %>0<% end %></span></b><br/>
+<input type="hidden" name="rating[<%= rn.id %>]" id="rating_<%= rn.name %>" value="<% if @site.ratings.fetch((rn.id-1), 0) != 0 %><%= @site.ratings.fetch(rn.id-1).rating %><% else %>0<% end %>" >
+<table ><tr>
+  <td>Poor</td><Td><div id="rating_zoom_slider_<%= rn.name %>" class="slider">
+    <div class="handle"></div>
+  </div></td><td>Perfect</td></tr></table>
+
+</p>
+
+<script type="text/javascript">
+  (function() {
+    var rating_zoom_slider_<%= rn.name %> = $('rating_zoom_slider_<%= rn.name %>');
+    new Control.Slider(rating_zoom_slider_<%= rn.name %>.down('.handle'), rating_zoom_slider_<%= rn.name %>, {
+      range: $R(0, 100),
+	increment: 5,
+      sliderValue: <% if @site.ratings.fetch((rn.id-1), 0) != 0 %><%= @site.ratings.fetch(rn.id-1).rating %><% else %>0<% end %>,
+	onSlide: function(value) {
+		$('rating_<%= rn.name %>_display').innerHTML = parseInt(value);
+	},
+      onChange: function(value) { 
+		$('rating_<%= rn.name %>').value = parseInt(value);
+		
+      }
+    });
+  })();
+</script>
+<br/>
+<% end %>
+
+<% if @site.new_record? %>
+  <p>
+    <%= f.submit "Add Site" %>
+  </p>
+<% else %>
+  <p>
+    <%= f.submit "Update Site" %>
+  </p>
+<% end %>
+<% end %>
+
+<br/><Br/>

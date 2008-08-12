@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Great Porn Reviews <% if params[:name] %>- <%= params[:name].gsub(/-/, " ") %><%end%></title>
+<meta name="description" content="Great Porn Reviews - A trusted resource for honest porn reviews by the largest name in adult entertainment. " />
+<meta name="keywords" content="porn reviews, pay site reviews, adult toy reviews, honest porn reviews" />
+<meta name="robots" content="index, follow" />
+<meta name="revisit-after" content="1 days" />
+<meta name="rating" content="adult" />
+<link href="/stylesheets/messages.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/stylesheets/pornreviews.css" rel="stylesheet" type="text/css" media="all" />
+<script language="javascript" src="/javascripts/prototype.js"></script>
+<script language="javascript" src="/javascripts/effects.js"></script>
+<script language="javascript" src="/javascripts/messages.js"></script>
+<script language="javascript">
+<!--
+function doSearch() {
+
+  var searchval = $('searchbox').value;
+  var authenticity_token = '<%= form_authenticity_token %>';
+
+  window.location = "/search/" + searchval;
+
+} 
+function handlekey(myfield,e)
+{
+  var keycode;
+  if (window.event) keycode = window.event.keyCode;
+  else if (e) keycode = e.which;
+  else return true;
+
+  if (keycode == 13)
+  {
+    doSearch();
+    return false;
+  }
+  else
+    return true;
+}
+function lite(obj) {
+  if(document.all&&!window.opera) {
+    obj.filters.blendTrans.apply(); 
+    obj.filters.blendTrans.play(); 
+  } 
+} 
+//-->
+</script>
+</head>
+
+<body>
+  <div align="center">Great Porn Reviews</div>
+  <table width="992" border="0" align="center" cellpadding="0" cellspacing="0" style="border-left:1px solid #861819; border-right:1px solid #861819;">
+    <tr>
+      <td><img src="/images/menu_bar-17.jpg" width="163" height="33" /></td>
+      <td width="110" height="33" align="center" class="style12" style="background-image:url(/images/menu_bar-18.jpg);"><a href="/niche/Straight"  class="menu_bar">STRAIGHT</a></td>
+      <td width="101" height="33" align="center" style="background-image:url(/images/menu_bar-19.jpg);"><span class="style12"><a href="/niche/Gay" class="menu_bar">GAY</a></span></td>
+      <td width="138" height="33" align="center" style="background-image:url(/images/menu_bar-20.jpg);"><span class="style12"><a href="/niche/Dating" class="menu_bar">DATING SITES</a> </span></td>
+      <td width="122" height="33" align="center" style="background-image:url(/images/menu_bar-21.jpg);"><span class="style12"><a href="/niche/Cam" class="menu_bar">CAM SITES</a></span> </td>
+      <td width="159" height="33" align="center" style="background-image:url(/images/menu_bar-22.jpg);"><span class="style12"><a href="/niche/Toys" class="menu_bar">ADULT TOYS</a></span> </td>
+      <td><img src="/images/menu_bar-23.jpg" width="197" height="33" /></td>
+    </tr>
+    <tr>
+      <td style="background-color:#FFFFFF;"><img src="/images/menu_bar-24.jpg" width="163" height="18" /></td>
+      <td colspan="5" style="background-color:#FFFFFF;">&nbsp;</td>
+      <td style="background-color:#FFFFFF;"><img src="/images/menu_bar-30.jpg" width="197" height="18" /></td>
+    </tr>
+  </table>
+  <table width="992" border="0" align="center" cellpadding="0" cellspacing="0" style="border-left:1px solid #861819; border-right:1px solid #861819;border-bottom:1px solid #861819;">
+    <tr>
+      <td width="122" valign="top">
+        <!--TOP NICHE COLUMN start-->
+        <table width="122" border="0" cellspacing="0" cellpadding="0" style="background-color:#e2e0e0; border-right:1px solid #861819; ">
+          <tr>
+            <td align="left"  style="border-bottom:#b8b7b7 1px solid;">
+              <%= render :partial => "layouts/categories" %>
+            </td>
+          </tr>
+        </table>
+
+        <!--TOP NICHE COLUMN end-->
+
+      </td>
+      <td width="709" align="center" valign="top" style="background-color:#FFFFFF;" ><ul id="messages"></ul><%= yield %>
+      </td>
+      <td width="155" align="left" valign="top" style="padding-right:0px; background-color:#e0e0e0;">
+        <table width="155" border="0" align="left" cellpadding="0" cellspacing="0" style="background-color:#e2e0e0; border-left:1px solid #861819;padding-right:2px;">
+          <tr>
+            <!--/////////////////////TOP sites start//////////////////////////////-->
+            <td align="left" valign="top"  style="border-bottom:#b8b7b7 1px solid; padding:0px 1px 0px 0px;">
+              <%= render :partial => "layouts/sites" %>	
+            </td>
+          </tr>
+          <!--/////////////////////TOP sites end//////////////////////////////-->
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table width="990" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td  align="center">
+        <br />
+        <span class="style27" style="font-size: 10px;">All Models appearing on this site are   18 or older &copy; Awesome Company, All Rights Reserved </span></td>
+    </tr>
+  </table>
+  <%= js_extract_messages_from_flash %>
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-1464950-28");
+    pageTracker._trackPageview();
+   </script>
+</body>
+<!-- <%= RAILS_ENV %> -->
+</html>

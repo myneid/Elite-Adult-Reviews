@@ -1,0 +1,23 @@
+<table width="697" cellspacing="0" cellpadding="0" border="0" align="center">
+<tbody><tr>
+<td style="background-image: url(/images/section_bg.jpg);">
+  <% if not is_top %>
+  <div align="left" class="section_top2"><%= section %> </div>
+  <% else %>
+  <div align="left" class="review_page_section_top"><%= section %> </div>
+<% end %>
+<% sites.each do |s| %>
+<div class="top_review_section">
+  <div style="padding-bottom: 10px;" class="site_pic"><a href="<%= s.link %>"><img src="<%= s.main_screenshot(:thumbreg) %>"/></a></div>
+	<div class="top_review_container">
+          <div align="left" class="top_review_title"><%= s.name %></div>
+          <div align="left" style="padding-top: 3px;" class="one_line_text style18"><a class="read_more" href="<%= s.track_url %>"><%= s.display_url %></a></div>
+          <div align="left" class="description"><%=h s.short_review %></div>
+          <div align="left" style="padding-top: 5px;" class="one_line_text style18"><a class="read_more style25" href="<%= s.link %>">read more-></a> </div>
+
+      </div>
+    </div>
+<% end %>
+</td></tr>
+</tbody></table>
+<div class="section_last_bottom" style="padding-left: 5px;" align="center"><img src="/images/last_bottom.jpg" /></div>

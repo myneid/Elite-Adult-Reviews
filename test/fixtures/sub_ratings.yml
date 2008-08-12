@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  exclusivity: 1
+  updates: 1
+  originality: 1
+  quality: 1
+  speed: 1
+  quantity: 1
+  design: 1
+  navigation_ease: 1
+  features: 1
+  price: 1
+
+two:
+  exclusivity: 1
+  updates: 1
+  originality: 1
+  quality: 1
+  speed: 1
+  quantity: 1
+  design: 1
+  navigation_ease: 1
+  features: 1
+  price: 1

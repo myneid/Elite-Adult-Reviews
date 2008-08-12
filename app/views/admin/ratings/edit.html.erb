@@ -1,0 +1,38 @@
+<div id="innercontent">
+<h2>Update Rating</h2>
+<Br>
+
+<%= error_messages_for :rating %>
+
+<% form_for(@rating) do |f| %>
+  <p>
+    <b>Site</b><br />
+	<%= @rating.site.display_url %>
+  </p>
+<br/>
+  <p>
+    <b>Category</b><br />
+	<%= @rating.category.name %>
+  </p>
+<br/>
+
+
+  <p>
+    <b>Rating</b><br />
+	<select name="rating[rating]">
+	<% 100.times do |t| %>
+		<% t = t +1 %>
+		<option value="<%= t %>" <% if @rating.rating == t %>SELECTED<%end%>><%= t %></option>
+	<% end %>
+	</select>
+  </p>
+<br/>
+
+  <p>
+    <%= f.submit "Save Changes" %>
+  </p>
+
+<br/>
+<% end %>
+<a href="/admin/sites">Back</a>
+</div>

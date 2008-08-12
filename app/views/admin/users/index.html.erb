@@ -1,0 +1,29 @@
+<h1>Users Admin</h1>
+
+<table border=1>
+  <tr>
+    <th>username</th>
+    <th>first name</th>
+    <th>last name</th>
+    <th>email</th>
+    <th>role</th>
+    <th>actions</th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td><%=h user.name %></td>
+    <td><%=h user.firstname %></td>
+    <td><%=h user.surname %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.role %></td>
+    <td><%= link_to 'Show', user %> |
+    <%= link_to 'Edit', edit_user_path(user) %> |
+    <%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New user', new_user_path %>

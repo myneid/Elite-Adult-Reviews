@@ -1,0 +1,212 @@
+body
+{
+   margin: 0;
+   padding: 0;
+   font: 12px Helvetica;
+   color: #000;
+   background: #f3f3f3;
+}
+
+.center
+{
+   width: 760px;
+   margin: 5px auto 5px auto;
+   border: 1px solid #aaa;
+   padding: 5px;
+   background: #fff;
+}
+
+.menu
+{
+   margin-bottom: 15px;
+   padding-bottom: 5px;
+   border-bottom: 1px dotted #aaa;
+}
+
+.menu h3
+{
+   background: url(/images/menu.gif) repeat-y;
+   margin: 0;
+   padding: 2px 2px 2px 18px;
+   color: #fff;
+   font-size: 12px;
+}
+
+.menu form
+{
+   margin: 3px;
+   padding: 0;
+}
+
+.ul1
+{
+   list-style-type: none;
+   margin: 0;
+   padding-left: 5px;
+}
+
+.ul1 li
+{
+   margin-top: 1px;
+}
+
+.ul1 li a
+{
+   text-decoration: none;
+   padding-left: 15px;
+   color: #666;
+   background: url(/images/1.gif) left center no-repeat;
+   font-weight: bold;
+}
+
+.ul1 li a:hover
+{
+   color: #ff0000;
+   background: url(/images/2.gif) left center no-repeat;
+}
+
+.ul2
+{
+   margin: 0;
+   padding-left: 16px;
+   list-style-type: square;
+}
+
+.ul2 li
+{
+   margin-top: 2px;
+}
+
+input.text
+{
+   width: 100px;
+}
+
+input.submit
+{
+   width: 30px;
+}
+
+#l, #r
+{
+   width: 145px;
+   float: left;
+}
+
+#c
+{
+   width: 470px;
+   float: left;
+}
+
+#nota
+{
+   padding: 5px 160px 0 160px;
+   text-align: center;
+   clear: both;
+   font-size: 10px;
+}
+
+#h
+{
+   height: 80px;
+   background: url(/images/header.jpg) no-repeat;
+   position: relative;
+}
+
+#h ul
+{
+   position: absolute;
+   bottom: 10px;
+   right: 20px;
+   margin: 0;
+   padding: 0;
+}
+
+#h li
+{
+   display: inline;
+   margin-left: 5px;
+}
+
+#h li a
+{
+   color: #fff;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+#h li a:hover
+{
+   text-decoration: underline;
+}
+
+#f
+{
+   text-align: center;
+   font-size: 10px;
+}
+
+#content
+{
+   margin: 0 10px 0 10px;
+   padding: 5px;
+   border-top: 1px dotted #aaa;
+   border-bottom: 1px dotted #aaa;
+   text-align: justify;
+}
+
+
+.tytul a, #content li a
+{
+   text-decoration: underline;
+   color: #666;
+   font-weight: bold;
+}
+
+a
+{
+   text-decoration: underline;
+   color: #666;
+}
+
+a:hover, #content li a:hover
+{
+   color: #ff0000;
+}
+
+.rek1
+{
+   text-align: center;
+}
+
+.ostatnie
+{
+   margin-bottom: 15px;
+}
+
+.tytul
+{
+  margin-bottom: 2px;
+}
+
+.wiecej
+{
+   text-align: right;
+}
+
+h1
+{
+   font-size: 12px;
+   color: #fff;
+   margin: 0;
+   padding: 0;
+   position: absolute;
+   top: 65px;
+   left: 30px;
+}
+
+img
+{
+   border: 0;
+}

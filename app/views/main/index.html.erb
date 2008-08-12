@@ -1,0 +1,41 @@
+<% if @today %>
+  <!-- Todays Review -->
+  <table width="697" cellspacing="0" cellpadding="0" border="0" align="center">
+    <tbody><tr>
+        <td valign="top" style="background-image: url(/images/section_bg.jpg);">
+          <div align="left" class="section_top">TODAYS REVIEW </div>
+          <div class="site_pic"><a href="<%= @today.link %>"><img border="0" src="<%= @today.main_screenshot(:thumbreg) %>" alt="<%= @today.display_url %>"/></a></div>
+          <div class="todays_info_container">
+            <div align="left" class="title"><%= @today.name %></div> 
+            <div align="left" class="description"><%= @today.short_review %></div>
+            <div align="left" style="padding-top: 5px;" class="one_line_text style18"><a class="read_more" href="<%= @today.link %>">read more-></a> </div>
+            <div align="left" style="padding-top: 10px;" class="one_line_text style18"><strong>PRICES</strong></div>
+            <div align="left" style="padding: 2px 0px; background-image: url(/images/light_grey_fade.jpg); margin-top: 5px;" class="style18 one_line_text style22"><strong>Trial: <%= @today.trial_price %></strong></div>
+            <div align="left" style="padding: 2px 0px; background-image: url(/images/light_grey_fade.jpg); margin-top: 5px;" class="style18 one_line_text style22"><strong>Members: <%= @today.full_price %></strong></div>
+          </div>
+          <!--close tag of todays_info_container-->
+          <div class="section_bottom"><img src="/images/section_bottom.jpg"/></div>  </td>
+      </tr>
+  </tbody></table>
+  <!-- End Todays Review -->
+<% end %>
+<!-- Latest Reviews -->
+<table width="697" cellspacing="0" cellpadding="0" border="0" align="center">
+  <tbody><tr>
+      <td style="background-image: url(/images/section_bg.jpg);">
+        <div align="left" class="section_top2">LATEST REVIEWS </div>
+    <% unless @latest.nil? %><% @latest.each do |l| %>
+        <div class="latest_review_setup2">
+          <a href="<%= l.link %>"><img border="0" src="<%= l.main_screenshot(:thumblatest) %>"/></a>
+          <div align="left" class="text150"><%= l.name %></div>
+          <div align="center" class="red_rating_bg"><%= l.overall %>%</div>
+          <div align="left" class="text70"><a class="read_more" href="<%= l.link %>">Read review </a></div>
+        </div>
+      <% end %><% end %>
+        <div class="section_bottom"><img src="/images/section_bottom.jpg"/></div></td>
+    </tr>
+</tbody></table>
+<!-- End Latest Reviews -->
+<!-- Top Reviews -->
+<%= render :partial => "layouts/reviewlist", :locals => { :section => 'Top Reviews', :sites => @top, :is_top => false } %>
+<!-- end Top Reviews -->

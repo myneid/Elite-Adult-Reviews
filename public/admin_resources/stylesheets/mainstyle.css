@@ -1,0 +1,123 @@
+/*
+Original Author: Jason Murray Cole;
+ */
+body	{background-color:#EEE;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 85%;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;}
+p	{margin: 0px;
+	padding: 0px;
+	text-indent: 5px;}
+/*Links*/
+a			{color:#039;
+	text-decoration:none;}
+a:visited	{color:#606;}
+/*Lists*/
+ul	{list-style: none outside  url(/admin_resources/images/cube.gif);
+	margin: 0px;
+	padding: 0px;
+	padding-left: 20px;}
+ul ul, ul * ul	{list-style: none outside  url(/admin_resources/images/cube.embed.gif);
+	margin: 0px;
+	padding: 0px;
+	padding-left: 20px;}
+/*Others*/
+code	{ font-size: 1.25em;}
+h1,h2,h3,h4,h5,h6	{color: #123;
+	margin: 0px;
+	padding: 0px;
+	text-align:left;}
+.red	{background:#900 url("/admin_resources/images/bg.gif") repeat-x bottom;
+	color: #FFF;
+	margin-left: -5px;
+	text-align:left;}
+.red a
+{color: #FFF;}
+.red a:hover
+{color: #DDD;}
+div.corner_container	{color: #123;
+	margin: 0px auto;
+	padding: 0px;
+	width: 150px;}
+div.corner_container h2	{background: #456 url(/admin_resources/images/top.gif) no-repeat top left;
+	color: #EEE;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 1.25em;
+	font-weight: 900;
+	padding: 5px;
+	text-align:center;}
+div.corner_container p	{background: #ABC url(/admin_resources/images/bottom.gif) no-repeat bottom left;
+	margin: 0px;
+	margin-bottom: 5px;
+	padding: 5px;}
+/* mountaintop corners from http://www.alistapart.com/articles/mountaintop */
+div.corner_container p.disc	{background-image: url(/admin_resources/images/bottom_disc.gif);}
+div.corner_container p.mail	{background-image: url(/admin_resources/images/bottom_mail.gif);}
+div.corner_container p.person	{background-image: url(/admin_resources/images/bottom_person.gif);}
+div.corner_container p.page	{background-image: url(/admin_resources/images/bottom_page.gif);}
+div.corner_container p.plug	{background-image: url(/admin_resources/images/bottom_plug.gif);}
+div.corner_container p.talk	{background-image: url(/admin_resources/images/bottom_talk.gif);}
+div#left	{border: none;
+	clear:left;
+	float:left;
+	margin: 5px 0px 0px;
+	padding: 0px;
+	width: 160px;
+	text-align:left;}
+div#body	{background-color:#FFF;
+	border: 1px solid #CCC;
+	border-top-width: 0px;
+	margin: 3px;
+	margin-left: 161px;
+	margin-top: 0px;
+	padding: 0px;
+	padding-left: 5px;
+	text-align:left;}
+#header	{background:#900 url("/admin_resources/images/bg.gif") repeat-x bottom; /* all of #header CSS + Images basically taken from final version 2 of http://www.alistapart.com/articles/slidingdoors/ */
+	color: #FFF;
+	float:left;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	width: 100%;}
+#header ul	{list-style:none;
+	margin:0px;
+	padding: 0px;
+	padding-top: 10px;}
+#header li	{background:url("/admin_resources/images/right.gif") no-repeat right top;
+	float:left;
+	list-style:none;
+	margin:0px;
+	margin-left: 5px;
+	padding: 0px;
+	padding-right: 5px;}
+#header a	{background:url("/admin_resources/images/left.gif") no-repeat left top;
+	color:#123;
+	display:block;
+	float:left;
+	padding: 10px;
+	text-decoration:none;}
+#header a:hover	{background-image:url("/admin_resources/images/left_.gif");
+	color:#000;}
+#header #current	{background-image:url("/admin_resources/images/right_on.gif");}
+#header #current a	{background-image:url("/admin_resources/images/left_on.gif");
+	color:#333;
+	padding-bottom:11px;}
+#header li#title	{background-image: none;
+	font-size:1.5em;
+	line-height: 1em;
+	margin-top: -5px;
+	width: 160px;}
+
+#header #current a:hover	{background-image:url("/admin_resources/images/left_on_.gif");
+	color:#000;}
+
+div#innercontent  {
+	position: relative;
+	top: 20px;
+	bottom: 20px;
+	margin-bottom: 15px;
+	padding: 15px;
+	min-height: 400px; 
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC 
+ "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Porn Review::Administration</title>
+<link type="text/css" rel="stylesheet" rev="stylesheet" media="screen" href="/admin_resources/stylesheets/mainstyle.css"  />
+<link type="text/css" rel="stylesheet" media="screen" href="/admin_resources/stylesheets/messages.css">
+<script language="javascript" src="/javascripts/prototype.js"></script>
+<script language="javascript" src="/javascripts/scriptaculous.js"></script>
+<script language="javascript" src="/javascripts/messages.js"></script>
+</head>
+<body>
+<div id="header">
+	<ul>
+          <li id="title">Porn Reviews </li>
+        <li <% if controller.controller_name == 'main' %>id="current" <% end %>><a href="/admin">Main</a></li>
+        <li <% if controller.controller_name == 'sites' %>id="current" <% end %>><a href="/admin/sites">Sites</a></li>
+		<li <% if controller.controller_name == 'categories' %>id="current" <% end %>><a href="/admin/categories">Categories</a></li>
+		<li <% if controller.controller_name == 'users' %>id="current" <% end %>><a href="/admin/users">Users</a></li>
+		<li <% if controller.controller_name == 'stats' %>id="current" <% end %>><a href="/admin/statistics">Statistics</a></li>
+	</ul>
+</div>
+<div id="left">
+	<div class="corner_container">
+		<h2>Administration</h2>
+		<ul>
+			<li>Main</li>
+			<li><a href="/admin/sites">Sites</a></li>
+			<li><a href="/admin/categories">Categories</a></li>
+                        <li><a href="/admin/users">Users</a></li>
+			<li><a href="/account/logout">Log Out</a></li>
+		</ul>
+<ul id="messages"></ul>
+	</div>
+</div>
+<div id="body">
+  <%= yield %>
+	<h6 class="red">
+		 &copy; 2008 Awesome Company  
+	</h6>
+</div>
+<%= js_extract_messages_from_flash %>
+</body>
+</html>

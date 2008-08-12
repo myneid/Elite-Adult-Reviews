@@ -1,0 +1,6 @@
+<% list_categories %>
+<% @categories.each do |c| %>
+  <div id="niche_name">
+    <a class="nav" onmouseout="lite(this)" onmouseover="lite(this)" href="/niche/<%= c.name %>"><%= c.name %></a>
+  </div>
+<% end %>

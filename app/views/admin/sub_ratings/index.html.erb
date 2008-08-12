@@ -1,0 +1,38 @@
+<h1>Listing sub_ratings</h1>
+
+<table>
+  <tr>
+    <th>Exclusivity</th>
+    <th>Updates</th>
+    <th>Originality</th>
+    <th>Quality</th>
+    <th>Speed</th>
+    <th>Quantity</th>
+    <th>Design</th>
+    <th>Navigation ease</th>
+    <th>Features</th>
+    <th>Price</th>
+  </tr>
+
+<% for sub_rating in @sub_ratings %>
+  <tr>
+    <td><%=h sub_rating.exclusivity %></td>
+    <td><%=h sub_rating.updates %></td>
+    <td><%=h sub_rating.originality %></td>
+    <td><%=h sub_rating.quality %></td>
+    <td><%=h sub_rating.speed %></td>
+    <td><%=h sub_rating.quantity %></td>
+    <td><%=h sub_rating.design %></td>
+    <td><%=h sub_rating.navigation_ease %></td>
+    <td><%=h sub_rating.features %></td>
+    <td><%=h sub_rating.price %></td>
+    <td><%= link_to 'Show', sub_rating %></td>
+    <td><%= link_to 'Edit', edit_sub_rating_path(sub_rating) %></td>
+    <td><%= link_to 'Destroy', sub_rating, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sub_rating', new_sub_rating_path %>

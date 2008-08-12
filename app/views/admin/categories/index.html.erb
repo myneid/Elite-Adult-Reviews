@@ -1,0 +1,21 @@
+<div id="innercontent">
+<h2>Listing categories</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% for category in @categories %>
+  <tr>
+    <td><%=h category.name %></td>
+    <td><%= link_to 'Show', category %></td>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<a href="/admin/categories/new">Create New Category</a>
+</div>

@@ -1,0 +1,18 @@
+<p>
+  <b>Firstname:</b>
+  <%=h @showuser.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%=h @showuser.surname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @showuser.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@showuser) %> |
+<%= link_to 'Back', users_path %>

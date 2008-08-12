@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  short_review: MyText
+  content: MyText
+  features_and_navigation: MyText
+  conclusion: MyText
+  pros_and_cons: MyText
+  display_url: MyString
+  track_url: MyString
+  screenshot_location: MyString
+  created_at: 2008-05-15
+  updated_at: 2008-05-15
+
+two:
+  short_review: MyText
+  content: MyText
+  features_and_navigation: MyText
+  conclusion: MyText
+  pros_and_cons: MyText
+  display_url: MyString
+  track_url: MyString
+  screenshot_location: MyString
+  created_at: 2008-05-15
+  updated_at: 2008-05-15

@@ -1,0 +1,125 @@
+<!--//////////////////////////////////////////////todays review start////////////////////////////////////////////-->	
+<table width="697" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top" style="background-image:url(/images/section_bg.jpg);">
+      <div align="left" class="review_page_section_top"><span class="style26"><%= @site.name.upcase %></span></div>
+	</td>
+  </tr>
+<td valign="top" style="background-image:url(/images/section_bg.jpg);">
+	<table width="697" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="205" height="90" valign="top" style="padding:10px 0px 20px 10px;"><img src="<%= @site.main_screenshot(:thumbreg) %>"  />
+      <br/><span class="style27">Trial Price: <%= @site.trial_price %><br/>Full Price: <%= @site.full_price %></span></td>
+    <td width="492" align="center" valign="top" style="padding:10px 0px 10px 0px;">
+	
+	<!--//////////////////////////////////////////////CONTENT BAR GRAPH START////////////////////////////////////////////-->	
+	<table width="480" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="480" align="left" style="background-color:#dadada; border-bottom:#f0f0f0 3px solid;" >
+      <span class="style27"> <%= @site.name %> ratings </span></td>
+  </tr>
+<tr>
+  <% SubRating.columns.each do |cn| %>
+    <% if cn.name == 'id' or cn.name == 'created_at' or \
+      cn.name == 'updated_at' or cn.name == 'site_id' \
+      then next end %>
+      <tr>
+        <td width="480" align="right" style="background-color:#dadada; border-bottom:#f0f0f0 3px solid; background-image:url(/images/stripes.jpg);" >
+          <div class="rating_bar_gray" align="left" style="width:<%= @site.sub_rating.send(cn.name).to_i*(3.94) %>px;"><%= cn.human_name %></div>
+          <div class="rating_bar_red" align="center"><%= @site.sub_rating.send(cn.name) %>%</div>
+        </td>
+      </tr>
+    <% end %>
+  <tr>
+    <td width="480" align="right" style="background-color:#dadada; border-bottom:#f0f0f0 3px solid; background-image:url(/images/stripes.jpg);">
+	   <div class="rating_bar_total" align="left" style="width:230px;">TOTAL</div>
+           <div class="rating_bar_red_total" align="center" style=" height:32px;"><%= @site.overall %>%</div>	
+    </td>
+  </tr>
+  
+  <tr>
+    <td width="480"  style="padding:17px 0px 0px 0px;">
+      <div class="visit_site_name" align="center"> <a href="<%= @site.track_url %>"  class="teach" onmouseover="lite(this)" onmouseout="lite(this)">VISIT <%= @site.name.upcase %></a></div> 
+      <div class="view_more_reviews" align="center"> <a href="<%= @site.read_more_link %>"  class="teach" onmouseover="lite(this)" onmouseout="lite(this)">READ MORE REVIEWS </a></div> 
+	  </td>
+  </tr>
+</table>
+<!--//////////////////////////////////////////////CONTENT BAR GRAPH End////////////////////////////////////////////-->	
+	</td>
+  </tr>
+</table>
+	</td>
+  </tr>
+</table>
+<!--//////////////////////////////////////////////todays review end////////////////////////////////////////////-->	
+<!--//////////////////////////////////////////////content review start////////////////////////////////////////////-->	
+<table width="697" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div class="review_page_title_bar" align="left">Content</div></td>
+  </tr>
+</table>
+
+<table width="697" border="0" cellspacing="0" cellpadding="0" style="background-image:url(/images/section_bg.jpg);">
+  <tr>
+    <td width="210" valign="top" style="padding:5px 0px 0px 10px;">	
+	<table width="200" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" style="padding:3px 0px 0px 0px;"><img src="<%= @site.memberone_screenshot(:thumbsmall) %>"  /></td>
+    <td align="center" style="padding:3px 0px 0px 0px;"><img src="<%= @site.membertwo_screenshot(:thumbsmall) %>" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="padding:5px 0px 5px 0px;"><span class="style29">MEMBERS AREA SCREENSHOTS </span></td>
+    </tr>
+  <tr>
+    <td align="left"><img src="<%= @site.memberthree_screenshot(:thumbsmall) %>" /></td>
+    <td align="center"><img src="<%= @site.memberfour_screenshot(:thumbsmall) %>" /></td>
+  </tr>
+</table>
+	</td>
+    <td width="497" align="center" valign="top" style="padding:0px 12px 20px 0px;"><div  class="description" align="left">
+        <%= @site.content %>
+      </div></td>
+  </tr>
+</table>
+<!--//////////////////////////////////////////////content review END///////////////////////////////////////////-->	
+<!--//////////////////////////////////////////////Site and Nav begin////////////////////////////////////////////-->	
+<table width="697" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div class="review_page_title_bar" align="left">Site and Navigation </div></td>
+  </tr>
+</table>
+<table width="697" border="0" cellspacing="0" cellpadding="0" style="background-image:url(/images/section_bg.jpg);">
+  <tr>
+    
+    <td width="697" align="center" valign="top" style="padding:0px 0px 0px 0px;"><div  class="description697" align="left">
+        <%= @site.features_and_navigation %>
+      </div></td>
+  </tr>
+</table>
+<!--//////////////////////////////////////////////Site and Nav End////////////////////////////////////////////-->	
+<!--//////////////////////////////////////////////Site and Nav begin////////////////////////////////////////////-->	
+<table width="697" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div class="review_page_title_bar" align="left">Conclusion</div></td>
+  </tr>
+</table>
+<table width="697" border="0" cellspacing="0" cellpadding="0" style="background-image:url(/images/section_bg.jpg);">
+  <tr>
+    <td width="697" align="center" valign="top" style="padding:0px 0px 0px 0px;"><div  class="description697" align="left">
+        <%= @site.conclusion %>
+      </div></td>
+  </tr>
+</table>
+<!--//////////////////////////////////////////////Site and Nav End////////////////////////////////////////////-->	
+<!--
+<% @site.ratings.each do |r| %>
+<tr>
+	<th><%= r.category.name %></th><td><%= r.rating %>/100</td>
+</tr>
+<% end %>
+-->
+<table width="697" border="0" cellspacing="0" cellpadding="0" style="background-image:url(images/section_bg.jpg);" align="center">
+  <tr>
+    <td width="697" align="center" valign="top">
+      <div class="section_last_bottom" align="center"><img src="images/last_bottom.jpg" /></div>
+</td></tr></table>

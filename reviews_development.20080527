@@ -1,0 +1,289 @@
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: reviews_development
+-- ------------------------------------------------------
+-- Server version	5.0.51b
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `categories`
+--
+
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,'Anal','2008-05-27 10:10:18','2008-05-27 10:10:18'),(2,'Ass','2008-05-27 10:10:34','2008-05-27 10:10:34'),(3,'Amateur','2008-05-27 10:10:43','2008-05-27 10:10:43');
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `prices`
+--
+
+DROP TABLE IF EXISTS `prices`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `prices` (
+  `id` int(11) NOT NULL auto_increment,
+  `site_id` int(11) default NULL,
+  `description` varchar(255) default NULL,
+  `price` float default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `prices`
+--
+
+LOCK TABLES `prices` WRITE;
+/*!40000 ALTER TABLE `prices` DISABLE KEYS */;
+/*!40000 ALTER TABLE `prices` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ratings`
+--
+
+DROP TABLE IF EXISTS `ratings`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `ratings` (
+  `id` int(11) NOT NULL auto_increment,
+  `category_id` int(11) default NULL,
+  `site_id` int(11) default NULL,
+  `rating` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `ratings`
+--
+
+LOCK TABLES `ratings` WRITE;
+/*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schema_info`
+--
+
+DROP TABLE IF EXISTS `schema_info`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `schema_info` (
+  `version` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `schema_info`
+--
+
+LOCK TABLES `schema_info` WRITE;
+/*!40000 ALTER TABLE `schema_info` DISABLE KEYS */;
+INSERT INTO `schema_info` VALUES (9);
+/*!40000 ALTER TABLE `schema_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `screenshots`
+--
+
+DROP TABLE IF EXISTS `screenshots`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `screenshots` (
+  `id` int(11) NOT NULL auto_increment,
+  `site_id` int(11) default NULL,
+  `location` varchar(255) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `screenshots`
+--
+
+LOCK TABLES `screenshots` WRITE;
+/*!40000 ALTER TABLE `screenshots` DISABLE KEYS */;
+/*!40000 ALTER TABLE `screenshots` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `sessions` (
+  `id` int(11) NOT NULL auto_increment,
+  `session_id` varchar(255) NOT NULL,
+  `data` text,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_sessions_on_session_id` (`session_id`),
+  KEY `index_sessions_on_updated_at` (`updated_at`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `sessions`
+--
+
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+INSERT INTO `sessions` VALUES (1,'d5c1648bf0975fa7cce7c273eedcb2d5','BAh7CzoPZ3Vlc3RfbmFtZTA6EGd1ZXN0X2VtYWlsMDoOcmV0dXJuX3RvIhto\ndHRwOi8vbG9jYWxob3N0OjMwMDAvOgx1c2VyX2lkMDoQdG9waWNfcmVhZHN7\nACIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFz\naHsABjoKQHVzZWR7AA==\n','2008-05-24 01:00:48','2008-05-24 01:45:58'),(2,'c0d7316899a173261823c15afad2efce','BAh7CzoQdG9waWNfcmVhZHN7ADoPZ3Vlc3RfbmFtZTA6EGd1ZXN0X2VtYWls\nMDoOcmV0dXJuX3RvIiZodHRwOi8vbG9jYWxob3N0OjMwMDAvYWRtaW4vc2l0\nZXMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh\nc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg==\n','2008-05-24 01:19:44','2008-05-24 02:11:54'),(3,'99abd796259b3cb1927c905bcc9d725e','BAh7CzoQZ3Vlc3RfZW1haWwwOg5yZXR1cm5fdG8iG2h0dHA6Ly9sb2NhbGhv\nc3Q6MzAwMC86DHVzZXJfaWRpBjoQdG9waWNfcmVhZHN7ACIKZmxhc2hJQzon\nQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7\nADoPZ3Vlc3RfbmFtZTA=\n','2008-05-27 08:57:16','2008-05-27 10:54:24'),(4,'df4c1b10833f87c10136f570445c6fb3','BAh7CzoQZ3Vlc3RfZW1haWwwOg5yZXR1cm5fdG8iHmh0dHA6Ly83MS45NS4y\nMzQuNTQ6MzAwMC86DHVzZXJfaWRpBjoQdG9waWNfcmVhZHN7ACIKZmxhc2hJ\nQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVz\nZWR7ADoPZ3Vlc3RfbmFtZTA=\n','2008-05-27 10:56:38','2008-05-27 10:59:49');
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sites`
+--
+
+DROP TABLE IF EXISTS `sites`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `sites` (
+  `id` int(11) NOT NULL auto_increment,
+  `short_review` text,
+  `content` text,
+  `features_and_navigation` text,
+  `conclusion` text,
+  `pros_and_cons` text,
+  `display_url` varchar(255) default NULL,
+  `track_url` varchar(255) default NULL,
+  `screenshot_location` varchar(255) default NULL,
+  `created_at` date default NULL,
+  `updated_at` date default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `sites`
+--
+
+LOCK TABLES `sites` WRITE;
+/*!40000 ALTER TABLE `sites` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sites` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sub_ratings`
+--
+
+DROP TABLE IF EXISTS `sub_ratings`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `sub_ratings` (
+  `id` int(11) NOT NULL auto_increment,
+  `exclusivity` int(11) default NULL,
+  `updates` int(11) default NULL,
+  `originality` int(11) default NULL,
+  `quality` int(11) default NULL,
+  `speed` int(11) default NULL,
+  `quantity` int(11) default NULL,
+  `design` int(11) default NULL,
+  `navigation_ease` int(11) default NULL,
+  `features` int(11) default NULL,
+  `price` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `sub_ratings`
+--
+
+LOCK TABLES `sub_ratings` WRITE;
+/*!40000 ALTER TABLE `sub_ratings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sub_ratings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL auto_increment,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `role` varchar(50) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `firstname` varchar(30) default NULL,
+  `surname` varchar(30) default NULL,
+  `password` varchar(60) NOT NULL,
+  `security_token` varchar(32) default NULL,
+  `additional_information` text,
+  `token_expiry` datetime default NULL,
+  `receives_email` int(11) NOT NULL default '0',
+  `sends_email` int(11) NOT NULL default '0',
+  `activated` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `users_1uq` (`name`),
+  KEY `users_1ix` (`role`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'2008-05-24 01:33:03','2008-05-24 01:33:03','Admin','admin','wsr@rushforthnetworks.com',NULL,NULL,'0fc4c551080ce7107652e89b3d514417',NULL,NULL,NULL,0,0,1);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2008-05-27 18:06:20

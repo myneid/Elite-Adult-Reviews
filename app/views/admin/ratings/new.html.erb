@@ -1,0 +1,34 @@
+<div id="innercontent">
+<h2>New rating</h2>
+
+<%= error_messages_for :rating %>
+
+<% form_for(@rating) do |f| %>
+  <p>
+    <b>Site</b><br />
+	<%= @site.display_url %>
+	<input type="hidden" name="rating[site_id]" value="<%= @site.id %>" />
+  </p>
+
+  <p>
+    <b>Category</b><br />
+	<%= collection_select(:rating, :category_id, Category.find(:all), :id, :name) %>
+  </p>
+
+
+  <p>
+    <b>Rating</b><br />
+	<select name="rating[rating]">
+	<% 100.times do |t| %>
+		<% t = t +1 %>
+		<option value="<%= t %>" <% if @rating.rating == t %>SELECTED<%end%>><%= t %></option>
+	<% end %>
+	</select>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+<a href="/admin/ratings">Back</a>
+</div>

@@ -1,0 +1,4 @@
+<% list_sites %>
+<% @sites.each do |s| %>
+  <div id="site_name"><a class="sites" onmouseout="lite(this)" onmouseover="lite(this)" href="<%= s.link %>" class="grey"><%= s.name %></a> </div> 
+<% end %>
