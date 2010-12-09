@@ -1,6 +1,11 @@
-elite adult reviews
+Hi, this is the Rails 3 version.
 
-this is an adult reviews program
-it is written in ruby on rails 2 and is a bit old.
-i need to update this readme with installation information
-and then work on upgrading it to rails 3
+After install, check db creds in config/db.yml then run 
+
+rake db:reset
+
+this will seed a few categories and a couple users:
+
+admin/admin
+editor/editor
+
