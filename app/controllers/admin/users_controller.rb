@@ -3,7 +3,7 @@ class Admin::UsersController < AdminAreaController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.find(:all)
+    @users = User.all
 
      respond_to do |format|
         format.html # show.html.erb

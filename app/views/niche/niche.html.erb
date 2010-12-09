@@ -1,11 +1,9 @@
 <% unless @sites.nil? %>
-<% if @sites.type.to_s == 'PagingEnumerator'  %>
 <% if @sites.size > 0 %>
   <%= render :partial => "layouts/reviewlist", :locals => { :section => params[:niche], :sites => @sites, :is_top => 1 } %>
-<br>Page: <%= paginating_links(@sites, {:params => {:query => params[:query]}} ) %>
+<br><%= will_paginate(@sites) %>
 <% else %>
   <p>&nbsp;</p>
   <i>Sorry, Nothing Found.</i>
-<% end %>
 <% end %>
 <% end %>

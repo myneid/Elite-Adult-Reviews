@@ -2,7 +2,8 @@ class Admin::SitesController < AdminAreaController
   # GET /sites
   # GET /sites.xml
   def index
-    @sites = Site.find(:all, :limit => 10, :order => "id desc")
+#    @sites = Site.find(:all, :limit => 10, :order => "id desc")
+    @sites = Site.order('id DESC').limit(10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -117,7 +118,8 @@ class Admin::SitesController < AdminAreaController
 
 	#update subratings
 
-	@subrating = SubRating.find(:first, :conditions => ["site_id = ?", @site.id])
+#	@subrating = SubRating.find(:first, :conditions => ["site_id = ?", @site.id])
+	@subrating = SubRating.where(:conditions => ["site_id = ?", @site.id]).first
 	if @subrating
 		@subrating.update_attributes(params[:sub_rating])
 	else
@@ -155,7 +157,8 @@ class Admin::SitesController < AdminAreaController
             @screenshot = Screenshot.new(params[:images][:main])
             @screenshot.site_id = site_id
             @screenshot.location = 'main'
-            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'main'", site_id])
+#            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'main'", site_id])
+            @xme = Screenshot.where({:site_id => site_id, location => @screenshot.location}).first
             if @screenshot.save 
               #delete the one we are replacing
               if @xme
@@ -169,7 +172,8 @@ class Admin::SitesController < AdminAreaController
             @screenshot = Screenshot.new(params[:images][:memberone])
             @screenshot.site_id = site_id
             @screenshot.location = 'memberone'
-            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'memberone'", site_id])
+#            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'memberone'", site_id])
+            @xme = Screenshot.where({:site_id => site_id, location => @screenshot.location}).first
             if @screenshot.save 
               #delete the one we are replacing
               if @xme
@@ -183,7 +187,8 @@ class Admin::SitesController < AdminAreaController
             @screenshot = Screenshot.new(params[:images][:membertwo])
             @screenshot.site_id = site_id
             @screenshot.location = 'membertwo'
-            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'membertwo'", site_id])
+#            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'membertwo'", site_id])
+            @xme = Screenshot.where({:site_id => site_id, location => @screenshot.location}).first
             if @screenshot.save 
               #delete the one we are replacing
               if @xme
@@ -197,7 +202,8 @@ class Admin::SitesController < AdminAreaController
             @screenshot = Screenshot.new(params[:images][:memberthree])
             @screenshot.site_id = site_id
             @screenshot.location = 'memberthree'
-            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'memberthree'", site_id])
+#            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'memberthree'", site_id])
+            @xme = Screenshot.where({:site_id => site_id, location => @screenshot.location}).first
             if @screenshot.save 
               #delete the one we are replacing
               if @xme
@@ -211,7 +217,8 @@ class Admin::SitesController < AdminAreaController
             @screenshot = Screenshot.new(params[:images][:memberfour])
             @screenshot.site_id = site_id
             @screenshot.location = 'memberfour'
-            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'memberfour'", site_id])
+#            @xme = Screenshot.find(:first, :conditions => ["site_id = ? and location = 'memberfour'", site_id])
+            @xme = Screenshot.where({:site_id => site_id, location => @screenshot.location}).first
             if @screenshot.save 
               #delete the one we are replacing
               if @xme

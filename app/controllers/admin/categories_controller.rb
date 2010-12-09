@@ -2,7 +2,7 @@ class Admin::CategoriesController < AdminAreaController
   # GET /categories
   # GET /categories.xml
   def index
-    @categories = Category.find(:all, :order => "name asc")
+    @categories = Category.order("name asc")
 
     respond_to do |format|
       format.html # index.html.erb

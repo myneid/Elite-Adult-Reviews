@@ -2,7 +2,7 @@ class ScreenshotsController < ApplicationController
   # GET /screenshots
   # GET /screenshots.xml
   def index
-    @screenshots = Screenshot.find(:all)
+    @screenshots = Screenshot.all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,7 +2,7 @@ class Admin::RatingsController < AdminAreaController
   # GET /ratings
   # GET /ratings.xml
   def index
-    @ratings = Rating.find(:all)
+    @ratings = Rating.all
 
     respond_to do |format|
       format.html # index.html.erb

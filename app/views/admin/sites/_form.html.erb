@@ -4,7 +4,7 @@
   div#zoom_element { width:50px; height:50px; background:#2d86bd; position:relative; }
 </style>
 
-<% form_for(@site, :html => {:multipart => true}) do |f| %>
+<%= form_for(@site, :html => {:multipart => true}) do |f| %>
 	<p>
 	<b>Name</b><br/>
 	<%= f.text_field :name %>
@@ -137,7 +137,7 @@
 
 <h2>Category Ratings</h2>
 <br/>
-<% Category.find(:all).each do |rn| %>
+<% Category.all.each do |rn| %>
 
 <% if rn.name == 'id' \
 	or rn.name == 'site_id' \

@@ -107,6 +107,6 @@ class User < ActiveRecord::Base
   end
 
   def generate_key(*args)
-    Digest::MD5.hexdigest('hustlerhustlerhustler' + args.join("\n"))
+    Digest::MD5.hexdigest('4apdQQ9Mz8k9lRK3' + args.join("\n"))
   end
 end

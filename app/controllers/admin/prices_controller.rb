@@ -2,7 +2,7 @@ class Admin::PricesController < AdminAreaController
   # GET /prices
   # GET /prices.xml
   def index
-    @prices = Price.find(:all)
+    @prices = Price.all
 
     respond_to do |format|
       format.html # index.html.erb

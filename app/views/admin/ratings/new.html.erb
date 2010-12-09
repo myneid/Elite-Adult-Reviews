@@ -3,7 +3,7 @@
 
 <%= error_messages_for :rating %>
 
-<% form_for(@rating) do |f| %>
+<%= form_for(@rating) do |f| %>
   <p>
     <b>Site</b><br />
 	<%= @site.display_url %>
@@ -12,7 +12,7 @@
 
   <p>
     <b>Category</b><br />
-	<%= collection_select(:rating, :category_id, Category.find(:all), :id, :name) %>
+	<%= collection_select(:rating, :category_id, Category.all, :id, :name) %>
   </p>
 
 

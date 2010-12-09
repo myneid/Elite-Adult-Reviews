@@ -12,7 +12,7 @@ class SearchController < ApplicationController
 
 		@query = params[:query]
 
-		@niche = Category.find(:first, :conditions => ["name like ?", "%#{@query}%"])
+		@niche = Category.where["name like ?", "%#{@query}%"]).first
 
 		if @niche
 			redirect_to "/niche/#{@niche.name}"

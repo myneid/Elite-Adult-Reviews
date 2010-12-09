@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery
   helper :all # include all helpers, all the time
-  protect_from_forgery  :secret => '26e4d6404e47434c4d4c4e4449424c3f'
+#  protect_from_forgery  :secret => '26e4d6404e47434c4d4c4e4449424c3f'
   before_filter :setup_user
   after_filter :finish_user, :remember_location, :flash_to_json_header
 
@@ -102,6 +103,7 @@ class ApplicationController < ActionController::Base
       redirect_to :controller => 'user', :action => 'login'
     end
   end
+  
   def admin_login_required
     if session[:user_id]
       if @user.role != 'Admin'

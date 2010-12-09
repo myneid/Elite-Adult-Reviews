@@ -3,7 +3,7 @@
 
 <%= error_messages_for :category %>
 
-<% form_for(@category) do |f| %>
+<%= form_for(@category) do |f| %>
   <p>
     <b>Name</b><br />
     <%= f.text_field :name %>

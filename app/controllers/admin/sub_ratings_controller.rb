@@ -2,7 +2,7 @@ class SubRatingsController < ApplicationController
   # GET /sub_ratings
   # GET /sub_ratings.xml
   def index
-    @sub_ratings = SubRating.find(:all)
+    @sub_ratings = SubRating.all
 
     respond_to do |format|
       format.html # index.html.erb

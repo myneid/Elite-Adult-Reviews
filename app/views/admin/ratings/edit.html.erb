@@ -4,7 +4,7 @@
 
 <%= error_messages_for :rating %>
 
-<% form_for(@rating) do |f| %>
+<%= form_for(@rating) do |f| %>
   <p>
     <b>Site</b><br />
 	<%= @rating.site.display_url %>

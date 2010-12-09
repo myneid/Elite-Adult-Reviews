@@ -2,7 +2,7 @@
 
 <%= error_messages_for :screenshot %>
 
-<% form_for(@screenshot) do |f| %>
+<%= form_for(@screenshot) do |f| %>
   <p>
     <b>Site</b><br />
     <%= f.text_field :site_id %>
